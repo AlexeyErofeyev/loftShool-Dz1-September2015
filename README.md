@@ -8,4 +8,4 @@
 
 4. npm i
 
-5 gulp
+5. gulp

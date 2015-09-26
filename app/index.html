@@ -7,20 +7,25 @@
 	<title>Обо мне</title>
 	<!-- <link rel="stylesheet" href="bower/normalize-css/normalize.css"> -->
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="fonts/fira.css">
+
+	<script src="bower/html5shiv/dist/html5shiv-printshiv.min.js"></script>
 </head>
 <body>
 	 <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-	<header>
-	<div class="align clearfix">
+
+        <!--                                             HEADER                                              -->
+
+
+	<header class="header">
+	<div class="alignHeader clearfix">
 		
-		<div class = "logo">
-			<figure>
+		<a href="index.html" class="logo">
 				<img src="img/logo.png" alt="Loft School">
-			</figure>
-		</div>
+			
+		</a>
 			
 			<div>
 				<ul class="socialIco">
@@ -32,6 +37,116 @@
 			</div>
 	</div>
 	</header>
+	<div class="stripe"></div>
+
+		<!--                                             HEADER-END                                              -->
+
+		<!--                                             MAIN-CONTENT                                             -->
+
+	<section class="align clearfix">
+				<!--                                             LEFT-COL                                            -->
+		<div class="leftCol">
+			<nav class="navbar">
+				<ul>
+					<li><a href="#" class="active">Обо мне</a></li>
+					<li><a href="#">Мои работы</a></li>
+					<li><a href="#">Связаться со мной</a></li>
+				</ul>
+			</nav>
+			<address>
+				Автор <a href="mailto:matt@example.com">Matt West</a>
+			</address>	
+		</div>
+			<!--                                             LEFT-COL-END                                            -->
+
+			<!--                                             RIGHT-COL                                            -->
+
+		<div class="rightCol">
+			<div class="info clearfix">
+				<h2>Основная информация</h2>
+				<div class="line"></div>
+				<div class="face">
+				</div>
+
+				<ul class="description">
+					<li>
+					<span class="desc-item">Меня зовут: <span class="desc-info">Ерофеев Алексей Владимирович</span></span>
+					</li>
+					<li>
+					<span class="desc-item">Мой возраст: <span class="desc-info">28</span></span>
+					</li>
+					<li>
+					<span class="desc-item">Мой город: <span class="desc-info">СПб, Россия</span></span>
+					</li>
+					<li>
+					<span class="desc-item">Моя специализация: <span class="desc-info">FRONTEND разработчик</span></span>
+					</li>
+					<li>
+					
+					<span class="desc-item">Ключевые навыки:</span> 
+						
+					<ul class="skills">
+					
+						<li><p>html</p></li>
+						<li><p>css</p></li>
+						<li><p>javascript</p></li>
+						<li><p>gulp</p></li>
+						<li><p>git</p></li>
+					</ul>					
+					</li>
+				</ul>
+			</div>
+
+			<div class="job">
+				<h2>Опыт работы</h2>
+				<div class="short_line"></div>
+				<div class="jobPlace">
+					<h3>"ИП Боровицкий" - Продавец дисков</h3>
+					<p>Сентябрь 2005 - Август 2008</p>
+				</div>
+
+				<div class="jobPlace">
+					<h3>"ООО Системы безопастности" - Системный администратор</h3>
+					<p>Июнь 2008 - Июль 2010</p>
+				</div>
+			</div>
+
+			<div class="job">
+				<h2>Образование</h2>
+				<div class="short_line"></div>
+				<div class="jobPlace school">
+					<h3>Незаконченное высшее. СПБГУ ИТМО</h3>
+					<p>Октябрь 2012 - по настоящее время</p>
+				</div>
+
+				<div class="jobPlace docum">
+					<h3>Курсы Loftschool.ru</h3>
+					<p>Сентябрь 2015 - по настоящие время</p>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+			<!--                                             RIGTH-COL-END                                            -->
+
+		<!--                                             MAIN-CONTENT-END                                            -->
+		<div class="stripe"></div>
+
+		<!--                                             Footer                                            -->
+		
+		<footer class="footer">
+		<div class="alignFooter clearfix">
+			
+			<a href="#" class="lock"></a>
+			<p class="copyrait">© 2015. Это мой сайт, пожалуйста, не копируйте и не воруйте его.</p>
+		</div>
+		</footer>
+
+
+
+		<!--                                             Footer-End                                            -->
+
 	<script src='bower/jquery/dist/jquery.min.js'></script>
 	<script src='js/main.js'></script>
 </body>

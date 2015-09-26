@@ -1,6 +1,7 @@
 {
   "name": "loftSite",
   "dependencies": {
+    "html5shiv": "~3.7.3",
     "jquery": "~2.1.4",
     "normalize-css": "normalize.css#~3.0.3"
   }

@@ -139,6 +139,7 @@ body{
 /************************************header************************************************************/
 
 .header{
+    min-width: 960px;
     background-color: #eff3f7;
     padding-top: 35px;
     padding-bottom: 40px;
@@ -156,6 +157,7 @@ body{
 }
 .stripe{
     width: 100%;
+     min-width: 960px;
     height: 3px;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e7eff2+0,e7eff2+5,e1ecf2+8,e0ebef+8,dfe8ef+9,dbe8ee+9,dde8ee+10,d8e5eb+10,d6e3eb+12,c9dae1+15,c3d7e0+16,c0d4dd+17,bdd4dc+17,b5cdd7+19,b3ccd3+19,b1ccd5+20,aac7cf+21,abc7d2+21,a8c5cd+21,a8c4cf+22,99bbc5+24,99bbc7+24,94b9c2+25,96b8c4+25,92b6c2+25,86aeba+27,87afbb+28,82acba+28,82aab6+29,80aab8+29,7aa6b3+30,6194a5+33,5e93a3+34,558d9c+35,548c9d+35,4b8696+36,458294+37,418091+38,3e7d8f+38,38798b+39,307384+41,2b6f84+42,276e80+43,1e677a+47,1c677c+47,1e677a+47,1b667b+47,1d687b+51,20697c+51,20687e+52,256c7e+54,266d81+54,246d80+54,357688+59,39788a+59,397a8c+60,3c7b8d+60,448193+61,438092+61,488395+62,4b8696+63,4f8899+63,558d9c+64,5c91a1+65,6195a3+66,6a99a9+67,7aa6b3+70,7aa6b1+70,7ba7b4+70,7ea8b4+71,81a8b7+71,7fa9b5+71,83abb7+71,8fb3bf+74,8fb4bd+74,94b6c0+74,9bbbc6+76,a8c4cf+78,a8c5cd+79,afcad3+80,b2cad4+80,b2cbd2+81,b4ccd6+81,b5ccd4+81,bbcfd8+82,bbd2da+83,bfd3dc+83,bfd3da+83,c3d5df+84,c7dae0+85,cedde4+86,cddee5+87,e0e9ee+91,e0ebf1+92,e1eaef+93,e2ebf2+93,e1ecf0+93,e3ecf3+93,e5eef3+94,e7eff2+100 */
     background: #709fac; /* Old browsers */
@@ -506,8 +508,8 @@ a.active:hover{
 /**********************************************FOOTER***************************************************/
 .footer{
     background-color: #eff3f7;
-    padding-bottom: 20px;
     text-align: center;
+     min-width: 960px;
 }
 
 .marginBottom{
@@ -532,7 +534,7 @@ a.active:hover{
 .alignFooter{
     width: 960px;
     margin: 0 auto;
-    padding-left: 30px;
+    /*padding-left: 30px;*/
 }
 
 .copyrait{
@@ -553,7 +555,7 @@ html {
 }
 
 section{
-    padding-bottom: 140px;
+    padding-bottom: 70px;
 }
 
 footer{

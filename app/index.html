@@ -5,9 +5,11 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Обо мне</title>
-	<!-- <link rel="stylesheet" href="bower/normalize-css/normalize.css"> -->
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="fonts/fira.css">
+
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
 	<script src="bower/html5shiv/dist/html5shiv-printshiv.min.js"></script>
 </head>
@@ -29,10 +31,10 @@
 			
 			<div>
 				<ul class="socialIco">
-					<li><a href="#" class = "sprite sprite-FB"></a></li>
-					<li><a href="#" class = "sprite sprite-Github"></a></li>
-					<li><a href="#" class = "sprite sprite-Twitter"></a></li>
-					<li><a href="#" class = "sprite sprite-VK"></a></li>
+					<li class = "sprite sprite-FB"><a href="#" class="minusPad">FaceBook</a></li>
+					<li class = "sprite sprite-Github"><a href="#" class="minusPad">GitHub</a></li>
+					<li class = "sprite sprite-Twitter"><a href="#" class="minusPad">Twitter</a></li>
+					<li class = "sprite sprite-VK"><a href="#" class="minusPad">VK.com</a></li>
 				</ul>
 			</div>
 	</div>
@@ -47,15 +49,26 @@
 				<!--                                             LEFT-COL                                            -->
 		<div class="leftCol">
 			<nav class="navbar">
-				<ul>
-					<li><a href="#" class="active">Обо мне</a></li>
-					<li><a href="#">Мои работы</a></li>
-					<li><a href="#">Связаться со мной</a></li>
+				<ul id ="navbar">
+					<li class="navBarLi"><a href="#" class="active">Обо мне</a></li>
+					<li class="navBarLi"><a href="#">Мои работы</a></li>
+					<li class="navBarLi"><a href="#">Связаться со мной</a></li>
 				</ul>
 			</nav>
-			<address>
-				Автор <a href="mailto:matt@example.com">Matt West</a>
-			</address>	
+			<address class="kontakt">
+					<h3>Контакты</h3>
+					<ul class="kontaktList">
+						<li class="mail">
+							<a href="mailto:punkjeki@yandex.ru" class="kontakt-link mail">punkjeki@yandex.ru</a>
+						</li>
+						<li class="tel">
+							<a href="tel:89112397776" class="kontakt-link tel">911 239 7776</a>
+						</li>
+						<li class="skype">
+							<a href="skype:punkjekiskype?chat" class="kontakt-link skype">punkjekiskype</a>
+						</li>
+					</ul>
+				</address>	
 		</div>
 			<!--                                             LEFT-COL-END                                            -->
 
@@ -65,7 +78,8 @@
 			<div class="info clearfix">
 				<h2>Основная информация</h2>
 				<div class="line"></div>
-				<div class="face">
+				<div id = "face"class="face">
+				<img src="img/DSCF1114.JPG" alt="Это Я!!!" id = "foto"class="foto">
 				</div>
 
 				<ul class="description">
@@ -81,9 +95,12 @@
 					<li>
 					<span class="desc-item">Моя специализация: <span class="desc-info">FRONTEND разработчик</span></span>
 					</li>
-					<li>
-					
+					<li class="skillLi clearfix">
+						<div class="workHabits">
 					<span class="desc-item">Ключевые навыки:</span> 
+							
+						</div>
+					<div class="workHabitsUl">
 						
 					<ul class="skills">
 					
@@ -93,6 +110,8 @@
 						<li><p>gulp</p></li>
 						<li><p>git</p></li>
 					</ul>					
+					</div>
+
 					</li>
 				</ul>
 			</div>
@@ -131,11 +150,11 @@
 			<!--                                             RIGTH-COL-END                                            -->
 
 		<!--                                             MAIN-CONTENT-END                                            -->
-		<div class="stripe"></div>
 
 		<!--                                             Footer                                            -->
 		
 		<footer class="footer">
+		<div class="stripe marginBottom"></div>
 		<div class="alignFooter clearfix">
 			
 			<a href="#" class="lock"></a>

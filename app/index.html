@@ -28,10 +28,10 @@
 			
 			<div>
 				<ul class="socialIco">
-					<li class = "sprite sprite-FB"><a href="#" class="minusPad">FaceBook</a></li>
-					<li class = "sprite sprite-Github"><a href="#" class="minusPad">GitHub</a></li>
-					<li class = "sprite sprite-Twitter"><a href="#" class="minusPad">Twitter</a></li>
-					<li class = "sprite sprite-VK"><a href="#" class="minusPad">VK.com</a></li>
+					<li class = "sprite sprite-FB"><a href="https://ru-ru.facebook.com/" class="minusPad" target="_blank">FaceBook</a></li>
+					<li class = "sprite sprite-Github"><a href="https://github.com/AlexeyErofeyev" class="minusPad" target="_blank">GitHub</a></li>
+					<li class = "sprite sprite-Twitter"><a href="https://twitter.com/" class="minusPad" target="_blank">Twitter</a></li>
+					<li class = "sprite sprite-VK"><a href="http://vk.com/id152421039" class="minusPad" target="_blank">VK.com</a></li>
 				</ul>
 			</div>
 	</div>
@@ -47,15 +47,15 @@
 		<div class="leftCol">
 			<nav class="navbar">
 				<ul id ="navbar">
-					<li class="navBarLi"><a href="#" class="active">Обо мне</a></li>
-					<li class="navBarLi"><a href="#">Мои работы</a></li>
-					<li class="navBarLi"><a href="#">Связаться со мной</a></li>
+					<li class="navBarLi"><a href="#" class="navLink active">Обо мне</a></li>
+					<li class="navBarLi"><a href="#" class="navLink">Мои работы</a></li>
+					<li class="navBarLi"><a href="#" class = "navLink connectMe">Связаться со мной</a></li>
 				</ul>
 			</nav>
 			<address class="kontakt">
 					<h3>Контакты</h3>
 					<ul class="kontaktList">
-						<li class="mail">
+						<li>
 							<a href="mailto:punkjeki@yandex.ru" class="kontakt-link mail">punkjeki@yandex.ru</a>
 						</li>
 						<li class="tel">
@@ -78,19 +78,40 @@
 				<div id = "face"class="face">
 				<img src="img/DSCF1114.JPG" alt="Это Я!!!" id = "foto"class="foto">
 				</div>
-
+				<div class="left">
+					
 				<ul class="description">
-					<li>
-					<span class="desc-item">Меня зовут: <span class="desc-info">Ерофеев Алексей Владимирович</span></span>
+					<li class="clearfix">
+						<div class="workHabits">							
+							<span class="desc-item">Меня зовут: </span>
+						</div>
+						<div class="workHabitsUl">							
+							<span class="desc-info">Ерофеев Алексей Владимирович</span></span>
+						</div>
 					</li>
-					<li>
-					<span class="desc-item">Мой возраст: <span class="desc-info">28</span></span>
+					<li class="clearfix">
+							<div class="workHabits">
+								<span class="desc-item">Мой возраст:</span>
+							</div>
+							<div class="workHabitsUl">
+								<span class="desc-info">28</span>
+							</div>
 					</li>
-					<li>
-					<span class="desc-item">Мой город: <span class="desc-info">СПб, Россия</span></span>
+					<li class="clearfix">
+						<div class="workHabits">
+							<span class="desc-item">Мой город: </span>
+						</div>
+						<div class="workHabitsUl">
+							<span class="desc-info">СПб, Россия</span>
+						</div>
 					</li>
-					<li>
-					<span class="desc-item">Моя специализация: <span class="desc-info">FRONTEND разработчик</span></span>
+					<li class="clearfix">
+						<div class="workHabits">
+							<span class="desc-item">Моя специализация: </span>
+						</div>
+						<div class="workHabitsUl">
+							<span class="desc-info">FRONTEND разработчик</span>
+						</div>
 					</li>
 					<li class="skillLi clearfix">
 						<div class="workHabits">
@@ -106,14 +127,17 @@
 						<li><p>javascript</p></li>
 						<li><p>gulp</p></li>
 						<li><p>git</p></li>
+
 					</ul>					
 					</div>
 
 					</li>
+					</ul>
 				</ul>
+				</div>
 			</div>
 
-			<div class="job">
+			<div class="info BTMPDD">
 				<h2>Опыт работы</h2>
 				<div class="short_line"></div>
 				<div class="jobPlace">
@@ -123,11 +147,11 @@
 
 				<div class="jobPlace">
 					<h3>"ООО Системы безопастности" - Системный администратор</h3>
-					<p>Июнь 2008 - Июль 2010</p>
+					<p>Июнь <span class="date">2008 - Июль 2010</span></p>
 				</div>
 			</div>
 
-			<div class="job">
+			<div class="info BTMPDD">
 				<h2>Образование</h2>
 				<div class="short_line"></div>
 				<div class="jobPlace school">

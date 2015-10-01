@@ -112,6 +112,8 @@ ul{
 
 .logo{
     float: left;
+    margin-top: 3px;
+    margin-left: -1px;
 }
 
 .minusPad{
@@ -142,7 +144,7 @@ body{
     min-width: 960px;
     background-color: #eff3f7;
     padding-top: 35px;
-    padding-bottom: 40px;
+    padding-bottom: 34px;
 }
 
 .alignHeader{
@@ -176,7 +178,7 @@ body{
 /**********************************************content*******************************************************/
 .align{
     width: 960px;
-    margin: 40px auto;
+    margin: 39px auto;
 }
 
 .leftCol{
@@ -193,49 +195,44 @@ body{
     background-color: #eff3f7;
     border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
-.navbar a{
+.navLink{
     display: block;
     text-decoration: none;
     font-size: 23px;
-    padding: 28px;
+    padding: 27px 25px 23px 28px; 
     font-family: "fira_sansbook";
-    color: #3ba8c0;
+    color: #959aa8;
     letter-spacing: -1px;
+    border-left: 11px solid #eff3f7;
+    border-right: 11px solid #eff3f7;
+    -webkit-box-shadow: 0px 2px 0px 0px #3ba8c0;
+    -moz-box-shadow: 0px 2px 0px 0px #3ba8c0);
+    box-shadow: 0px 2px 0px 0px #3ba8c0;
+}
+
+.connectMe{
+    letter-spacing: -2px;
 }
 
 .navbar a:hover{
-    color: #959aa8;
+    color: #3ba8c0;
 }
 
 a.active{
     background-color: #3ba8c0;
     color: #ffffff; 
+    border: none;
+    box-shadow: none;
 }
 
 a.active:hover{
     cursor: default;
     color: #ffffff;
 }
-.navBarLi{
-    position: relative;
-}
-.navBarLi:after{
-    content: "";
-    display: block;
-    position: absolute;
-    width: 230px;
-    height: 2px;
-    background-color: #3ba8c0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -115px;
-}
-.navbar li:last-child:after{
-    display: none;
-}
+
 
 .myId:after{
     display: none;
@@ -246,29 +243,39 @@ a.active:hover{
     border-radius: 4px;
     overflow: hidden;
     font-family: "fira_sansbook";
-    position: relative;
+    text-align: center;
+
 }
 .kontakt h3{
     font-size: 21px;
     color: #ffffff;
     background-color: #3ba8c0;
-    padding: 10px 0px 5px 20px;
+    padding: 13px 0px 5px 20px;
+    text-align: left;
 }
-.kontakt a{
+.kontakt-link{
     color: #ffffff;
-    margin-left: 80px;
     text-decoration: none;
+    display: block;
+    position: relative;
+    text-align: left;
+    padding-top: 12px;
+    padding-bottom: 11px;
+    padding-left: 84px;
+    background-color: #41b9d4;
 }
 
 .kontakt a:hover{
     text-decoration: underline;
 }
 
+.kontaktList li{
+    position: relative;
 
+}
 
 .kontaktList{
     font-size: 17px;
-    line-height: 40px;
 }
 
 .mail{
@@ -290,8 +297,9 @@ a.active:hover{
     background-image: url('../img/kontakt.png');
     background-repeat: no-repeat;
     display: block;
-    left: 33px;
-    top: 47px;
+    left: 43px;
+    top: 50%;
+    margin-top: -8px;
     width: 21px;
     height: 16px;
     background-position: -2px -2px;    
@@ -303,8 +311,9 @@ a.active:hover{
     background-image: url('../img/kontakt.png');
     background-repeat: no-repeat;
     display: block;
-    left: 33px;
-    top: 85px;
+    left: 43px;
+    top: 50%;
+    margin-top: -10px;
     width: 19px;
     height: 20px;
     background-position: -51px -2px;   
@@ -316,8 +325,9 @@ a.active:hover{
     background-image: url('../img/kontakt.png');
     background-repeat: no-repeat;
     display: block;
-    left: 33px;
-    top: 127px;
+    left: 43px;
+    top: 50%;
+    margin-top: -10px;
     width: 20px;
     height: 20px;
     background-position: -27px -2px;   
@@ -328,56 +338,60 @@ a.active:hover{
 .info{
     padding-top: 22px;
     background-color: #eff3f7;
-    padding-right: 25px;
     border-radius: 4px;
     margin-bottom: 26px;
 }
 
+.BTMPDD{
+    padding-bottom: 19px;
+}
 .info h2{
     color: #3ba8c0;
     font-size: 27px;
     line-height: 22px;
     text-align: left;
-    margin-left: 30px;
-    margin-bottom: 26px;
+    margin-left: 22px;
+    margin-bottom: 22px;
     font-family: "fira_sansbook";
-    letter-spacing: -1px;
 }
 
 .line{
   width: 341px;
   height: 2px;
   background-color: #3ba8c0;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .face{
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 5px solid #3ba8c0;
-  margin: 10px 23px 67px 55px;
-  float: left;
-  /*background-image: url('../img/DSCF1114.JPG');*/
-  background-size: 120%;
-  background-position: -19px;
-  overflow: hidden;
-  position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid #3ba8c0;
+    margin: 19px 3px 67px 55px;
+    float: left;
+    background-size: 120%;
+    background-position: -19px;
+    overflow: hidden;
+    position: relative;
 }
 
 .foto{
-    width: 100%;
     height: 100%;
 }
 
+.left{
+    float: left;
+}
+
 .description li{
-    line-height: 30px;
+    line-height: 31px;
 }
 .desc-item{
     font-family: 'fira_sansmedium';
     font-size: 15px;
     color: #4a545d;
     margin-left: 20px;
+    letter-spacing: 1px;
 }
 
 
@@ -394,14 +408,21 @@ a.active:hover{
 }
 
 .workHabitsUl{
-    float: right;
-    width: 210px;
+    float: left;
+    width: 245px;
+}
+
+.skills{
+    margin-left: 6px;
 }
 
 .skills li{
-    padding: 2px 10px;
+    vertical-align: bottom;
+    padding: 2px 13px;
     display: inline-block;
-    margin: 5px; 
+    /*margin: 10px 0px 10px 5px; */
+    margin-left: 7px;
+    margin-right: -4px;
     border-radius: 2px;
     font-family: 'proxima_nova_condensedSBd';
     color: #ffffff;
@@ -425,28 +446,11 @@ a.active:hover{
     margin-bottom: 0;
 }
 
-.job{
-    padding-top: 22px;
-    border-radius: 4px;
-    background-color: #eff3f7;
-    padding-bottom: 45px;
-    margin-top: 26px;
-}
-.job h2{
-    color: #3ba8c0;
-    font-size: 27px;
-    line-height: 22px;
-    text-align: left;
-    margin-left: 30px;
-    margin-bottom: 26px;
-    font-family: "fira_sansbook";
-    letter-spacing: -1px; 
-}
 .short_line{
   width: 209px;
   height: 2px;
   background-color: #3ba8c0;
-  margin-bottom: 27px;
+  margin-bottom: 26px;
 }
 
 .jobPlace{
@@ -463,14 +467,22 @@ a.active:hover{
     background-image: url('../img/LockAndAnother.png');
     background-repeat: no-repeat;
     display: block;
+    top: 50%;
+    margin-top: -17px;
     width: 41px;
     height: 34px;
     background-position: -2px -2px;
-    left: -62px;
+    left: -69px;
 }
 
 .jobPlace h3{
     font-size: 17px;
+    margin-bottom: 3px;
+}
+
+.jobPlace p{
+    font-family: 'fira_sanslight';
+    font-size: 15px;
 }
 
 .school:before{
@@ -479,10 +491,12 @@ a.active:hover{
     background-image: url('../img/LockAndAnother.png');
     background-repeat: no-repeat;
     display: block;
+    top: 50%;
+    margin-top: -22px;
     width: 41px;
     height: 34px;
     background-position: -47px -2px;
-    left: -62px;    
+    left: -70cdpx;    
 }
 
 .docum:before{
@@ -491,10 +505,12 @@ a.active:hover{
     background-image: url('../img/LockAndAnother.png');
     background-repeat: no-repeat;
     display: block;
+    top: 50%;
+    margin-top: -18px;
     width: 41px;
     height: 34px;
     background-position: -92px -2px;
-    left: -62px;    
+    left: -69px;    
 }
 
 
@@ -522,6 +538,8 @@ a.active:hover{
     display: block;
     width: 20px;
     height: 32px;
+    margin-top: 3px;
+    margin-left: 32px;
     background-position: -2px -2px;
 
     float: left;
@@ -542,6 +560,7 @@ a.active:hover{
     font-size: 13px;
     color: #555f67;
     line-height: 40px;
+    margin-right: 47px;
 }
 /**************************************************************
                     прижатый футтер

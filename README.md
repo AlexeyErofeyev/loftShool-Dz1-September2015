@@ -1,3 +1,6 @@
+Всем привет, это сайт портфолио для LooftSchool.
+
+
 Как установить мой проект.
 
 1. git clone https://github.com/AlexeyErofeyev/loftShool-Dz1-September2015.git

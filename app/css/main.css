@@ -178,7 +178,7 @@ body{
 /**********************************************content*******************************************************/
 .align{
     width: 960px;
-    margin: 39px auto;
+    margin: 39px auto 13px auto;
 }
 
 .leftCol{
@@ -219,6 +219,10 @@ body{
 
 .navbar a:hover{
     color: #3ba8c0;
+}
+
+.navbar a:active{
+    color: #284b96;
 }
 
 a.active{
@@ -267,6 +271,10 @@ a.active:hover{
 
 .kontakt a:hover{
     text-decoration: underline;
+}
+
+.kontakt a:active{
+    color: #284b96;
 }
 
 .kontaktList li{
@@ -438,6 +446,10 @@ a.active:hover{
     background: linear-gradient(to bottom,  #3ba8c0 0%,#3ba8c0 50%,#2e8ca2 51%,#2e8ca2 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ba8c0', endColorstr='#2e8ca2',GradientType=0 ); /* IE6-9 */
 
+}
+
+.skills li:hover{
+    cursor: default;
 }
 
 

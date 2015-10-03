@@ -1,0 +1,73 @@
+
+.examplesHolder{
+    height: 817px;
+}
+
+.examples{
+    width: 181px;
+    margin: 0px 11px 43px 20px;
+    text-align: center;
+    font-family: 'fira_sanslight';
+    font-size: 15px;
+    float: left;
+}
+.screen{
+    height: 126px;
+    border: 2px solid #3ba8c0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 7px;
+}
+
+.screen img{
+    height: 100%;
+}
+
+.screen a{
+    display: block;
+    height: 100%;
+}
+
+.projectLink{
+    width: 80%;
+    margin: 0 auto;
+}
+.examples a{
+    font-family: 'fira_sanslight_italic';
+    font-size: 13px;
+    color: #3ba8c0;
+    text-decoration: none;
+}
+.examples a:hover{
+    color: #123138;
+}
+.examples a:active{
+    color: #76B2BF;
+}
+
+.examples h3{
+    margin: 12px 0px 5px 0px;
+}
+
+.screenProject{
+    height: 126px;
+    border: 2px dashed #3ba8c0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 7px;
+    color: #3ba8c0;
+}
+.screenProject a{
+    padding-top: 32px;
+    display: block;
+    height: 100%;
+}
+.screenProject a:hover{
+    text-decoration: underline;
+    color: #3ba8c0;
+}
+.screenProject a:active{
+    color: #1E2A2D;
+}
+
+

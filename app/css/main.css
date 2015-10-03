@@ -105,8 +105,8 @@ ul{
     list-style: none;
 }
 .socialIco li{
-    display: inline-block;
     float: right;
+    display: inline-block;
     margin-left: 24px;
 }
 
@@ -178,8 +178,8 @@ body{
 /**********************************************content*******************************************************/
 .align{
     width: 960px;
-    margin: 39px auto 13px auto;
-}
+    margin: 39px auto 23px auto;
+}    
 
 .leftCol{
     width: 250px;
@@ -202,11 +202,11 @@ body{
     display: block;
     text-decoration: none;
     font-size: 23px;
-    padding: 26px 25px 23px 28px; 
+    padding: 26px 25px 23px 6px; 
     font-family: "fira_sansbook";
     color: #959aa8;
     letter-spacing: -1px;
-    border-left: 11px solid #eff3f7;
+    border-left: 19px solid #eff3f7;
     border-right: 11px solid #eff3f7;
     -webkit-box-shadow: 0px 2px 0px 0px #3ba8c0;
     -moz-box-shadow: 0px 2px 0px 0px #3ba8c0);
@@ -225,10 +225,11 @@ body{
     color: #284b96;
 }
 
-a.active{
+.navLink.active{
     background-color: #3ba8c0;
     color: #ffffff; 
     border: none;
+    padding-left: 28px;
     box-shadow: none;
 }
 
@@ -278,9 +279,7 @@ a.active:hover{
 }
 
 .kontaktList li{
-    position: relative;
     width: 250px;
-
 }
 
 .kontaktList{
@@ -587,11 +586,11 @@ html {
 }
 
 section{
-    padding-bottom: 70px;
+    padding-bottom: 69px;
 }
 
 footer{
-    height: 70px;
+    height: 80px;
     position: absolute;
     bottom: 0;
     width: 100%

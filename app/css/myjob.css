@@ -4,19 +4,20 @@
 }
 
 .examples{
+    display: inline-block;
+    vertical-align: top;
     width: 181px;
-    margin: 0px 11px 43px 20px;
+    margin: 0px 6px 43px 20px;
     text-align: center;
     font-family: 'fira_sanslight';
     font-size: 15px;
-    float: left;
 }
 .screen{
     height: 126px;
     border: 2px solid #3ba8c0;
     border-radius: 6px;
     overflow: hidden;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
 }
 
 .screen img{

@@ -7,7 +7,7 @@
 	<title>Обо мне</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="fonts/fira.css">
-	<link rel="stylesheet" href="css/myjob.css">
+	<link rel="stylesheet" href="css/contacts.css">
 
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -49,8 +49,8 @@
 			<nav class="navbar">
 				<ul id ="navbar">
 					<li class="navBarLi"><a href="index.html" class="navLink">Обо мне</a></li>
-					<li class="navBarLi"><a href="myJobs.html" class="navLink active">Мои работы</a></li>
-					<li class="navBarLi"><a href="Contacts.html" class = "navLink connectMe ">Связаться со мной</a></li>
+					<li class="navBarLi"><a href="myJobs.html" class="navLink ">Мои работы</a></li>
+					<li class="navBarLi"><a href="#" class = "navLink connectMe active">Связаться со мной</a></li>
 				</ul>
 			</nav>
 			<address class="kontakt">
@@ -73,59 +73,37 @@
 			<!--                                             RIGHT-COL                                            -->
 
 		<div class="rightCol">
-			<div class="info examplesHolder clearfix">
-				<h2>Мои работы</h2>
-				<div class="short_line"></div>
-
-				<div class="examples">
-					<div class="screen">
-						<a href="#"><img src="img/1site.jpg" alt="www.site.ru"></a>
-					</div>
-						<a href="#">www.site.ru</a>
-						<h3>Информация о проекте</h3>
-						<p>1 превью 2 строки...</p>
+			<div class="info withoutIndents indentsBottom">
+				<div class="writeToMe">
+					<h2 class="withoutIndents">У вас интересный проект? Напишите мне</h2>
 				</div>
+				<form action="#" class="form">
+					<div class="clearfix nameNEmail">
+						<div class="nameHold">
+							<label for="name" class="formLabel">Имя</label>
+							<input type="text" placeholder="Как к Вам обращаться" class="name" id="name">
+						</div>
 
-
-				<div class="examples">
-					<div class="screen">
-						<a href="#"><img src="img/2site.jpg" alt="www.site.ru"></a>
+						<div class="EmailHold">
+							<label for="Email" class="formLabel">Email</label>
+							<input type="text" placeholder="Куда мне писать" class="name" id="Email">
+						</div>
 					</div>
-						<a href="#">www.site.ru</a>
-						<h3>Информация о проекте</h3>
-						<p>2 превью 2 строки...</p>
-				</div>
 
+					<label for="message" class="formLabel">Сообщение</label>
+					<textarea name="message" id="message" placeholder="Кратко в чем суть" class="message"></textarea>
 
-				<div class="examples">
-					<div class="screen">
-						<a href="#"><img src="img/3site.jpg" alt="www.site.ru"></a>
+					<div class="capcha clearfix">
+						<label for="capchaInput" class="formLabel smoleSize">Введите код, указанный на картинке</label>
+						<div class="capchaHolder"></div>
+						<input type="text" placeholder="Введите код" class="name capchaInput" id="capchaInput">
+
 					</div>
-						<a href="#">www.site.ru</a>
-						<h3>Информация о проекте</h3>
-						<p>3 превью 2 строки...</p>
-				</div>
-
-				<div class="examples">
-					<div class="screen">
-						<a href="#"><img src="img/4site.jpg" alt="www.site.ru">
-						</a>
+					<div class="battons clearfix">
+						<input type="submit" class="submit" value="Отправить">
+						<input type="reset" class="reset" value="Очистить">
 					</div>
-						<div class="projectLink"><a href="#">www.site.ru</a></div>
-						<h3>Информация о проекте</h3>
-						<p>4 превью 2 строки...</p>
-				</div>
-
-				<div class="newProject examples">
-					<div class="screenProject">
-						<a href="#">
-							<img src="img/newProject.png" alt="Add new project">
-							<h3>Добавить проект</h3>
-						</a>
-					</div>
-				</div>
-
-
+				</form>
 			</div>
 		</div>
 

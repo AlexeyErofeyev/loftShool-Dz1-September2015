@@ -50,7 +50,7 @@
     padding-left: 18px;
 }
 .inputLogin:focus{
-    border: blue;
+    border: 1px solid blue;
 }
 
 ::-moz-placeholder{

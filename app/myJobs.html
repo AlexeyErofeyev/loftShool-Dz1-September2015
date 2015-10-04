@@ -17,7 +17,34 @@
 <body>
 
         <!--                                             HEADER                                              -->
+<div id="popupBG">
+				<div class="popup">
+						<h2>Добавление проекта <a href="#" class="close" id="close"></a></h2>
+					<form action="#" class="addForm" id="form">
 
+						<div class="inputHolder">
+						<label for="" class="block addLabel">Название проекта</label>
+						<input type="text" class="block textInput nameProject" placeholder="Введите название">
+							<div class="error" id="nameProject">введите название</div>
+						</div>
+
+						<label for="" class="block addLabel">Картинка проекта</label>
+						<input type="file" class="block fileUpload">
+
+						<div class="inputHolder">
+						<label for="" class="block addLabel">URL проекта</label>
+						<input type="text" class="block textInput linkProject" placeholder="Добавьте ссылку">
+						<div class="error" id="linkProject">введите адрес</div>
+						</div>
+						<div class="inputHolder">
+						<label for="" class="block addLabel">Описание</label>
+						<textarea name="" class="block description ProjectDescription" placeholder="Пара слов о Вашем проекте"></textarea>
+						<div class="error" id="ProjectDescription">описание проекта</div>
+						</div>
+						<input type="submit" id = "submitBTN" class="submitBTN" value="Добавить">
+					</form>
+				</div>
+				</div>
 
 	<header class="header">
 	<div class="alignHeader clearfix">
@@ -44,7 +71,9 @@
 		<!--                                             MAIN-CONTENT                                             -->
 
 	<section class="align clearfix">
+
 				<!--                                             LEFT-COL                                            -->
+
 		<div class="leftCol">
 			<nav class="navbar">
 				<ul id ="navbar">
@@ -73,15 +102,15 @@
 			<!--                                             RIGHT-COL                                            -->
 
 		<div class="rightCol">
-			<div class="info examplesHolder clearfix">
+			<div class="info examplesHolder clearfix" id="info">
 				<h2>Мои работы</h2>
 				<div class="short_line"></div>
 
 				<div class="examples">
 					<div class="screen">
-						<a href="#"><img src="img/1site.jpg" alt="www.site.ru"></a>
+						<img src="img/1site.jpg" alt="www.site.ru">
 					</div>
-						<a href="#">www.site.ru</a>
+						<a href="#" target="_blank">www.site.ru</a>
 						<h3>Информация о проекте</h3>
 						<p>1 превью 2 строки...</p>
 				</div>
@@ -89,9 +118,9 @@
 
 				<div class="examples">
 					<div class="screen">
-						<a href="#"><img src="img/2site.jpg" alt="www.site.ru"></a>
+						<img src="img/2site.jpg" alt="www.site.ru">
 					</div>
-						<a href="#">www.site.ru</a>
+						<a href="#" target="_blank">www.site.ru</a>
 						<h3>Информация о проекте</h3>
 						<p>2 превью 2 строки...</p>
 				</div>
@@ -99,24 +128,24 @@
 
 				<div class="examples">
 					<div class="screen">
-						<a href="#"><img src="img/3site.jpg" alt="www.site.ru"></a>
+						<img src="img/3site.jpg" alt="www.site.ru">
 					</div>
-						<a href="#">www.site.ru</a>
+						<a href="#" target="_blank">www.site.ru</a>
 						<h3>Информация о проекте</h3>
 						<p>3 превью 2 строки...</p>
 				</div>
 
 				<div class="examples">
 					<div class="screen">
-						<a href="#"><img src="img/4site.jpg" alt="www.site.ru"></a>
+						<img src="img/4site.jpg" alt="www.site.ru">
 					</div>
-						<div class="projectLink"><a href="#">www.site.ru</a></div>
+						<a href="#" target="_blank">www.site.ru</a>
 						<h3>Информация о проекте</h3>
 						<p>4 превью 2 строки...</p>
 				</div>
 
 				<div class="examples">
-					<div class="screenProject">
+					<div class="screenProject" id="screenProject">
 						<a href="#">
 							<img src="img/newProject.png" alt="Add new project">
 							<h3>Добавить проект</h3>
@@ -149,7 +178,7 @@
 
 		<!--                                             Footer-End                                            -->
 
-	<script src='bower/jquery/dist/jquery.min.js'></script>
+
 	<script src='js/main.js'></script>
 </body>
 </html>

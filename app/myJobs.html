@@ -17,9 +17,9 @@
 <body>
 
         <!--                                             HEADER                                              -->
-<div id="popupBG">
+<div class="popupBG">
 				<div class="popup">
-						<h2>Добавление проекта <a href="#" class="close" id="close"></a></h2>
+						<h2>Добавление проекта <a href="#" class="close"></a></h2>
 					<form action="#" class="addForm" id="form">
 
 						<div class="inputHolder">
@@ -27,9 +27,11 @@
 						<input type="text" class="block textInput nameProject" placeholder="Введите название">
 							<div class="error" id="nameProject">введите название</div>
 						</div>
-
 						<label for="" class="block addLabel">Картинка проекта</label>
+							<div class="fileHolder">
 						<input type="file" class="block fileUpload">
+						<input type="text" class="inputFileVal" readonly="readonly" id="fileName" />	
+							</div>
 
 						<div class="inputHolder">
 						<label for="" class="block addLabel">URL проекта</label>
@@ -108,7 +110,7 @@
 
 				<div class="examples">
 					<div class="screen">
-						<img src="img/1site.jpg" alt="www.site.ru">
+						<img class="image" src="img/1site.jpg" alt="www.site.ru">
 					</div>
 						<a href="#" target="_blank">www.site.ru</a>
 						<h3>Информация о проекте</h3>
@@ -177,8 +179,9 @@
 
 
 		<!--                                             Footer-End                                            -->
-
-
-	<script src='js/main.js'></script>
+	<script src='bower/modernizr/modernizr.js'></script>
+	<script src="bower/jquery/jquery.min.js"></script>
+	<!--<script src='js/main.js'></script>-->
+	<script src='js/module2.js'></script>
 </body>
 </html>

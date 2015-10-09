@@ -4,10 +4,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Обо мне</title>
+	<title>Связаться со мной</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="fonts/fira.css">
 	<link rel="stylesheet" href="css/contacts.css">
+	<link rel="stylesheet" type="text/css" href="bower/tooltipster/css/tooltipster.css">
 
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -79,26 +80,26 @@
 				<div class="writeToMe">
 					<h2 class="withoutIndents">У вас интересный проект? Напишите мне</h2>
 				</div>
-				<form action="#" class="form">
+				<form action="#" class="form MyForm">
 					<div class="clearfix nameNEmail">
 						<div class="nameHold">
 							<label for="name" class="formLabel">Имя</label>
-							<input type="text" placeholder="Как к Вам обращаться" class="name" id="name">
+							<input type="text" placeholder="Как к Вам обращаться" class="name" id="name" title="Вы не ввели имя" data-position="left">
 						</div>
 
 						<div class="EmailHold">
 							<label for="Email" class="formLabel">Email</label>
-							<input type="text" placeholder="Куда мне писать" class="name" id="Email">
+							<input type="text" placeholder="Куда мне писать" class="name Email" id="Email" title="Вы не ввели email" data-position="right">
 						</div>
 					</div>
 
 					<label for="message" class="formLabel">Сообщение</label>
-					<textarea name="message" id="message" placeholder="Кратко в чем суть" class="message"></textarea>
+					<textarea name="message" id="message" placeholder="Кратко в чем суть" class="message" title="Ваш вопрос" data-position="left"></textarea>
 
 					<div class="capcha clearfix">
 						<label for="capchaInput" class="formLabel smoleSize">Введите код, указанный на картинке</label>
 						<div class="capchaHolder"></div>
-						<input type="text" placeholder="Введите код" class="name capchaInput" id="capchaInput">
+						<input type="text" placeholder="Введите код" class="name capchaInput" id="capchaInput" title="Вы не ввели код" data-position="right">
 
 					</div>
 					<div class="battons clearfix">
@@ -130,7 +131,10 @@
 
 		<!--                                             Footer-End                                            -->
 
-	<script src='bower/jquery/dist/jquery.min.js'></script>
-	<script src='js/main.js'></script>
+	<script src='bower/modernizr/modernizr.js'></script>
+	<script src="bower/jquery/jquery.min.js"></script>
+	<script src="bower/tooltipster/js/jquery.tooltipster.min.js"></script>
+	<!--<script src='js/main.js'></script>-->
+	<script src='js/module2.js'></script>
 </body>
 </html>

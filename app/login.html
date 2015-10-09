@@ -8,24 +8,29 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="fonts/fira.css">
 	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="bower/tooltipster/css/tooltipster.css">
 
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
 	<script src="bower/html5shiv/dist/html5shiv-printshiv.min.js"></script>
+
+	
+
 </head>
 <body>
 			<div class="alignLogin">
 				
-       <div class="login">
+       <div class="login tooltip" title="jsdfksjdhfksjh">
        	<h2>Авторизируйтесь</h2>
-       	<form action="#">
+       	<form action="#" class="MyForm">
+       		
 
        		<label for="login" class="labelLogin">Логин</label>
-       		<input type="text" id="login" placeholder="Введите логин" class="inputLogin">
+       		<input type="text" id="login" placeholder="Введите логин" class="inputLogin" title="введите логин" data-position="left">
 
        		<label for="password" class="labelLogin">Пароль</label>
-       		<input type="password" id="password" placeholder="Введите пароль" class="inputLogin">
+       		<input type="password" id="password" placeholder="Введите пароль" class="inputLogin" title="введите пароль" data-position="left">
 
        		<label for="subButn" class="labelLogin"></label>
        		<input type="submit" class="subButn" id="subButn" value="Войти">
@@ -47,7 +52,14 @@
 
 		<!--                                             Footer-End                                            -->
 
-	<script src='bower/jquery/dist/jquery.min.js'></script>
-	<script src='js/main.js'></script>
+	<script src='bower/modernizr/modernizr.js'></script>
+	<script src="bower/jquery/jquery.min.js"></script>
+	<script src="bower/tooltipster/js/jquery.tooltipster.min.js"></script>
+	<script src='js/module2.js'></script>
+
+	
+
+	
+
 </body>
 </html>

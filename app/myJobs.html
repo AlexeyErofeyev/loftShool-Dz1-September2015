@@ -8,11 +8,13 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="fonts/fira.css">
 	<link rel="stylesheet" href="css/myjob.css">
+	<link rel="stylesheet" type="text/css" href="bower/tooltipster/css/tooltipster.css">
 
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
 	<script src="bower/html5shiv/dist/html5shiv-printshiv.min.js"></script>
+
 </head>
 <body>
 
@@ -20,27 +22,27 @@
 <div class="popupBG">
 				<div class="popup">
 						<h2>Добавление проекта <a href="#" class="close"></a></h2>
-					<form action="#" class="addForm" id="form">
+					<form action="#" class="addForm MyForm" id="form">
 
 						<div class="inputHolder">
 						<label for="" class="block addLabel">Название проекта</label>
-						<input type="text" class="block textInput nameProject" placeholder="Введите название">
+						<input type="text" class="block textInput nameProject" data-position="left" placeholder="Введите название" title="Введите название">
 							<div class="error" id="nameProject">введите название</div>
 						</div>
 						<label for="" class="block addLabel">Картинка проекта</label>
 							<div class="fileHolder">
-						<input type="file" class="block fileUpload">
-						<input type="text" class="inputFileVal" readonly="readonly" id="fileName" />	
+						<input type="file" class="block fileUpload" data-position="left" title="изображение"> 
+						<input type="text" class="inputFileVal" data-position="left" readonly="readonly" id="fileName" />	
 							</div>
 
 						<div class="inputHolder">
 						<label for="" class="block addLabel">URL проекта</label>
-						<input type="text" class="block textInput linkProject" placeholder="Добавьте ссылку">
+						<input type="text" class="block textInput linkProject" data-position="left" placeholder="Добавьте ссылку" data-position="left" title="ссылка на проект">
 						<div class="error" id="linkProject">введите адрес</div>
 						</div>
 						<div class="inputHolder">
 						<label for="" class="block addLabel">Описание</label>
-						<textarea name="" class="block description ProjectDescription" placeholder="Пара слов о Вашем проекте"></textarea>
+						<textarea name="" class="block description ProjectDescription" data-position="left" placeholder="Пара слов о Вашем проекте" title="описание проекта"></textarea>
 						<div class="error" id="ProjectDescription">описание проекта</div>
 						</div>
 						<input type="submit" id = "submitBTN" class="submitBTN" value="Добавить">
@@ -181,6 +183,7 @@
 		<!--                                             Footer-End                                            -->
 	<script src='bower/modernizr/modernizr.js'></script>
 	<script src="bower/jquery/jquery.min.js"></script>
+	<script src="bower/tooltipster/js/jquery.tooltipster.min.js"></script>
 	<!--<script src='js/main.js'></script>-->
 	<script src='js/module2.js'></script>
 </body>

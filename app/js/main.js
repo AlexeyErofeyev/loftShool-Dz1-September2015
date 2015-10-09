@@ -56,14 +56,14 @@
 
 	/************Screen********************/
 
-	if((/msie 8./i).test(navigator.appVersion)){// Для ie8
-		/********* Замена фото****************/
-	  	var face = document.getElementById('face');
-		var foto = document.getElementById('foto');
-		if(face){
-			face.style.border = 'none';
-			foto.src = 'img/MyFace.png';
-			};
+	// if((/msie 8./i).test(navigator.appVersion)){// Для ie8
+	// 	/********* Замена фото****************/
+	//   	var face = document.getElementById('face');
+	// 	var foto = document.getElementById('foto');
+	// 	if(face){
+	// 		face.style.border = 'none';
+	// 		foto.src = 'img/MyFace.png';
+	// 		};
 		/********* Замена фото****************/
 
 		/**********POPUP**********************/		

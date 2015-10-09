@@ -1,3 +1,21 @@
+var Face =  (function ( ) {
+		if((/msie 8./i).test(navigator.appVersion)){
+	  	var face = document.getElementById('face');
+		var foto = document.getElementById('foto');
+		
+		}
+		
+    return {
+    	active : function () {
+		if(face){
+			face.style.border = 'none';
+			foto.src = 'img/MyFace.png';
+			};
+    
+    }
+};
+}());
+
 
 	var BlueScreen =  (function ( ) {
 		var blue = document.createElement('div');
@@ -27,14 +45,18 @@
 		blue.style.margin = '50px auto 0px auto'
 
 		blueLink.appendChild(blue);
+
+		var HoverScreen = function() {
+			$(this).append(blueLink);
+		};
+
+		var LiveScreen = function() {
+			$(this).find('a').remove();
+		};
 		
     return {
     	active : function () {
-		$('.screen').hover(function() {
-			$(this).append(blueLink);
-		}, function() {
-			$(this).find('a').remove();
-		});
+		$('.screen').hover(HoverScreen, LiveScreen);
     
     }
 };
@@ -53,6 +75,7 @@ var AddProject =  (function ( ) {
 		};
 		var closePopup = function () {
 			popupBG.fadeOut(500);
+			$(':input:not(":submit")').val('').tooltipster('hide');
 		}
 		
     return {
@@ -64,6 +87,102 @@ var AddProject =  (function ( ) {
 };
 }());
 
+var emailRegExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+
+var FormValidate =  (function ( ) {
+	var leftTool = {
+		theme : 'loftToolTip',
+		animation: 'grow',
+		delay: 1000,
+		touchDevices: false,
+		trigger: 'none',
+		speed: 1000,
+		position: 'left'
+	};
+
+	var rightTool = {
+		theme : 'loftToolTip',
+		animation: 'swing',
+		delay: 1000,
+		touchDevices: false,
+		trigger: 'none',
+		speed: 1000,
+		position: 'right'
+	}
+
+	var errorTips = function(e) {
+
+
+
+
+			$(":input").each(function() {
+				if($(this).attr('data-position') === 'right'){
+					$(this).tooltipster(rightTool);  
+					if($(this).val() ===''){
+					$(this).tooltipster('show');
+					e.preventDefault();
+				} else {
+					$(this).tooltipster('hide');
+				}
+				} else if($(this).attr('data-position') === 'left') {
+					$(this).tooltipster(leftTool);
+					if($(this).val() ===''){
+					$(this).tooltipster('show');
+					e.preventDefault();
+				} else {
+					$(this).tooltipster('hide');
+				}
+				}
+				
+			});
+
+
+			/*****************************************************************/
+			var myNewContent = 'Не корректно введен Email'
+			if(emailRegExp.test($('.Email').val()) || $('.Email').val() === '' ) {
+			console.log('Good Email');
+		} else {
+			 	$('.Email').tooltipster('hide');
+			 if($('.Email').attr('data-position') === 'right'){
+			 	$('.Email').tooltipster(leftTool);
+			 	$('.Email').tooltipster('show',function () {
+			 		$('.Email').tooltipster('content', myNewContent);
+			 	});
+			} else {}
+
+		}
+    
+    };
+
+    var focusTips = function() {
+			$(this).tooltipster('hide',function () {
+				$(this).blur(function() {
+					if($(this).val() !==''){
+						$(this).tooltipster('hide');
+					} 
+						
+				});
+			})
+				   
+		};
+
+		
+
+		
+
+
+
+		
+    return {
+    	active : function () {
+		$('.MyForm').submit(errorTips);
+		$(":input").focus(focusTips);
+    }
+};
+}());
+
+Face.active();
 BlueScreen.active();
-AddProject.active()
+AddProject.active();
+FormValidate.active();
 

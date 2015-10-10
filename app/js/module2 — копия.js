@@ -114,7 +114,7 @@ var FormValidate =  (function ( ) {
 
 
 
-			$(":input:not(.Email)").each(function() {
+			$(":input").each(function() {
 				if($(this).attr('data-position') === 'right'){
 
 					$(this).tooltipster(rightTool);
@@ -123,7 +123,11 @@ var FormValidate =  (function ( ) {
 
 					$(this).tooltipster('show');
 					e.preventDefault();
-					
+					// if((/msie 8./i).test(navigator.appVersion)){
+					// 	e.returnValue = false;
+					// } else {
+					// 	e.preventDefault();
+					// }
 				} else {
 
 					$(this).tooltipster('hide');
@@ -137,17 +141,41 @@ var FormValidate =  (function ( ) {
 
 					$(this).tooltipster('show');
 					e.preventDefault();
-					
+					// if((/msie 8./i).test(navigator.appVersion)){
+					// 	e.returnValue = false;
+					// } else {
+					// 	e.preventDefault();
+					// }
 
 				} else {
 
 					$(this).tooltipster('hide');
 				}
 				}
-			});
 				
+			});
 
-						
+var emailRegExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+
+			/*****************************************************************/
+			var myNewContent = 'Не корректно введен Email'
+			if(emailRegExp.test($('.Email').val()) || $('.Email').val() === '' ) {
+			console.log('Good Email');
+		} else {
+			if((/msie 8./i).test(navigator.appVersion)){
+						e.returnValue = false;
+					} else {
+						e.preventDefault();
+					}
+			 	$('.Email').tooltipster('hide');
+			 if($('.Email').attr('data-position') === 'right'){
+			 	$('.Email').tooltipster(leftTool);
+			 	$('.Email').tooltipster('show',function () {
+			 		$('.Email').tooltipster('content', myNewContent);
+			 	});
+			} else {}
+
+		}
     
     };
 
@@ -167,92 +195,17 @@ var FormValidate =  (function ( ) {
 		
     return {
     	active : function () {
-		$('.MyForm').on('submit',errorTips);
+		$('.MyForm').submit(errorTips);
 		$(":input").focus(focusTips);
     }
 };
 }());
 
 
-
-
-var MailValid =  (function (e) {
-			// e.preventDefault();
-
-	var emailRegExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-	var myNewContent = 'Не корректно введен Email';
-	var myNewContent2 = 'Введите Email';
-
-	var rightTool = {
-		theme : 'loftToolTip',
-		animation: 'swing',
-		delay: 1000,
-		touchDevices: false,
-		trigger: 'none',
-		speed: 1000,
-		position: 'right'
-	}
-
-	var leftTool = {
-		theme : 'loftToolTip',
-		animation: 'grow',
-		delay: 1000,
-		touchDevices: false,
-		trigger: 'none',
-		speed: 1000,
-		position: 'left'
-	};
-
-
-		var errorMail = function () {
-
-		if(emailRegExp.test($('.Email').val())){
-			console.log('Good Email');
-		} else {
-			if($('.Email').val() ===''){
-				if($('.Email').attr('data-position') === 'left'){
-					$('.Email').tooltipster(leftTool);
-					$('.Email').tooltipster('content', myNewContent2).tooltipster('show');
-				} else {
-					$('.Email').tooltipster(rightTool);
-					$('.Email').tooltipster('content', myNewContent2).tooltipster('show');
-				}
-
-			} else {
-				if($('.Email').attr('data-position') === 'left'){
-					$('.Email').tooltipster(leftTool);
-					$('.Email').tooltipster('content', myNewContent).tooltipster('show');
-				} else {
-					$('.Email').tooltipster(rightTool);
-					$('.Email').tooltipster('content', myNewContent).tooltipster('show');
-				}
-			}
-				}
-		}
-
-
-
-
-			
-		
-		
-    return {
-    	active : function () {
-
-		$('.MyForm').on('submit',errorMail);
-    
-    }
-};
-}());
-
-
-
-
-
 var FormClean =  (function ( ) {
 
 		var reset = function () {
-			$(":input:not(.submit,.reset)").tooltipster('hide');
+			$(":input").tooltipster('hide');
 		};
 		
     return {
@@ -269,9 +222,17 @@ var FormClean =  (function ( ) {
 
 var FormSender =  (function ( ) {
 
+	// 	function _setUpListners () {
+	// 		$('.MyForm').submit(_showResult);
+	// };
 
 	function _showResult (e) {
 		e.preventDefault();
+		// if((/msie 8./i).test(navigator.appVersion)){
+		// 				e.returnValue = false;
+		// 			} else {
+		// 				e.preventDefault();
+		// 			}
 
 		var form = $(this);
 		
@@ -319,7 +280,6 @@ Face.active();
 BlueScreen.active();
 AddProject.active();
 FormValidate.active();
-MailValid.active();
 FormClean.active();
 FormSender.active();
 

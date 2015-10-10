@@ -22,27 +22,28 @@
 <div class="popupBG">
 				<div class="popup">
 						<h2>Добавление проекта <a href="#" class="close"></a></h2>
-					<form action="#" class="addForm MyForm" id="form">
+					<form action="ajax.php" class="addForm MyForm" id="form">
 
 						<div class="inputHolder">
 						<label for="" class="block addLabel">Название проекта</label>
-						<input type="text" class="block textInput nameProject" data-position="left" placeholder="Введите название" title="Введите название">
+						<input type="text" name="nameProject" class="block textInput nameProject" data-position="left" placeholder="Введите название" title="Введите название">
 							<div class="error" id="nameProject">введите название</div>
 						</div>
 						<label for="" class="block addLabel">Картинка проекта</label>
-							<div class="fileHolder">
-						<input type="file" class="block fileUpload" data-position="left" title="изображение"> 
-						<input type="text" class="inputFileVal" data-position="left" readonly="readonly" id="fileName" />	
+							<div class="fileHolder clearfix">
+							<p class="fileName">Загрузите изображение</p>
+							<div class="fileBTN"><img src="img/cloudBTN.png" alt="загрузить"></div>
+						<input type="file" name="fileUpload" class="block fileUpload" data-position="left" title="изображение"> 	
 							</div>
 
 						<div class="inputHolder">
 						<label for="" class="block addLabel">URL проекта</label>
-						<input type="text" class="block textInput linkProject" data-position="left" placeholder="Добавьте ссылку" data-position="left" title="ссылка на проект">
+						<input type="text" name="linkProject" class="block textInput linkProject" data-position="left" placeholder="Добавьте ссылку" data-position="left" title="ссылка на проект">
 						<div class="error" id="linkProject">введите адрес</div>
 						</div>
 						<div class="inputHolder">
 						<label for="" class="block addLabel">Описание</label>
-						<textarea name="" class="block description ProjectDescription" data-position="left" placeholder="Пара слов о Вашем проекте" title="описание проекта"></textarea>
+						<textarea name="message" class="block description ProjectDescription" data-position="left" placeholder="Пара слов о Вашем проекте" title="описание проекта"></textarea>
 						<div class="error" id="ProjectDescription">описание проекта</div>
 						</div>
 						<input type="submit" id = "submitBTN" class="submitBTN" value="Добавить">

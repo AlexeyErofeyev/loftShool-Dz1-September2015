@@ -1,18 +1,20 @@
+permission=false;
 var Face =  (function ( ) {
 		if((/msie 8./i).test(navigator.appVersion)){
 	  	var face = document.getElementById('face');
-		var foto = document.getElementById('foto');
-		
-		}
-		
-    return {
-    	active : function () {
+		var foto = document.getElementById('foto');		
+		};
+
+var change = function () {
 		if(face){
 			face.style.border = 'none';
 			foto.src = 'img/MyFace.png';
 			};
     
-    }
+    };		
+		
+    return {
+    	active : change
 };
 }());
 
@@ -53,12 +55,12 @@ var Face =  (function ( ) {
 		var LiveScreen = function() {
 			$(this).find('a').remove();
 		};
-		
-    return {
-    	active : function () {
+		var hover = function () {
 		$('.screen').hover(HoverScreen, LiveScreen);
     
-    }
+    };
+    return {
+    	active : hover
 };
 }());
 
@@ -76,27 +78,28 @@ var AddProject =  (function ( ) {
 		var closePopup = function () {
 			popupBG.fadeOut(500);
 			$(':input:not(":submit")').val('').tooltipster('hide');
-		}
-		
-    return {
-    	active : function () {
+		};
+		var activePopup = function () {
 		screenProject.click(openPopup);
 		close.click(closePopup);
     
-    }
+    };
+		
+    return {
+    	active : activePopup
 };
 }());
 
-
-var FormValidate =  (function ( ) {
-	var leftTool = {
+var tooltipsterObj =  (function ( ) {
+		var leftTool = {
 		theme : 'loftToolTip',
 		animation: 'grow',
 		delay: 1000,
 		touchDevices: false,
 		trigger: 'none',
 		speed: 1000,
-		position: 'left'
+		position: 'left',
+		multiple: true
 	};
 
 	var rightTool = {
@@ -106,70 +109,94 @@ var FormValidate =  (function ( ) {
 		touchDevices: false,
 		trigger: 'none',
 		speed: 1000,
-		position: 'right'
+		position: 'right',
+		multiple: true
 	}
+		
+    return {
+    	leftTool : leftTool,
+    	rightTool : rightTool
+};
+}());
 
-	var errorTips = function(e) {
-					e.preventDefault();
 
 
+var FormValidate =  (function ( ) {
 
+	var logic = {
+	 activateValidate : function () {
+		$('.MyForm').on('submit',logic.errorTips);
+    		},
+
+
+	 errorTips : function (e) {
+
+			(typeof e.preventDefault() !== 'undefined')? e.returnValue = false : e.preventDefault();
+
+	
 			$(":input:not(.Email)").each(function() {
 				if($(this).attr('data-position') === 'right'){
-
-					$(this).tooltipster(rightTool);
-
-					if($(this).val() ===''){
-
-					$(this).tooltipster('show');
-					e.preventDefault();
-					
-				} else {
-
-					$(this).tooltipster('hide');
-
-				}
-				} else if($(this).attr('data-position') === 'left')
-				 {
-					$(this).tooltipster(leftTool);
+					$(this).tooltipster(tooltipsterObj.rightTool);
 
 					if($(this).val() ===''){
-
-					$(this).tooltipster('show');
-					e.preventDefault();
-					
-
-				} else {
-
-					$(this).tooltipster('hide');
-				}
-				}
-			});
-				
-
+					$(this).attr('data-haveerror', 'true').tooltipster('show',function () {
+						permission = true;
 						
-    
-    };
+					});		
+					
+				}
 
-    var focusTips = function() {
+				} else if($(this).attr('data-position') === 'left'){
+					$(this).tooltipster(tooltipsterObj.leftTool);
+
+					if($(this).val() ===''){
+						var abort = false;
+					$(this).attr('data-haveerror', 'true').tooltipster('show',function () {
+						permission = true;
+					});
+					
+					}
+				} 
+			});
+    		
+
+    		    }
+
+    
+
+	}
+			
+				   
+
+		
+    return {
+    	active : logic.activateValidate
+};
+}());
+
+
+
+var FocusFild =  (function ( ) {
+		var activateFocus = function () {		
+    $(":input").focus(focusTips);
+			
+		
+    }
+		 var focusTips = function() {  
+		 	if(permission){
+
 			$(this).tooltipster('hide');
 				$(this).blur(function() {
 					if($(this).val() ===''){
-						$(this).tooltipster(rightTool);
 						$(this).tooltipster('show');
 					} 
 						
 				});
-			
-				   
-		};
-
-		
+		 	}
+    	
+    	}
     return {
-    	active : function () {
-		$('.MyForm').on('submit',errorTips);
-		$(":input").focus(focusTips);
-    }
+    	active : activateFocus
 };
 }());
 
@@ -177,54 +204,35 @@ var FormValidate =  (function ( ) {
 
 
 var MailValid =  (function (e) {
-			// e.preventDefault();
+			
 
 	var emailRegExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-	var myNewContent = 'Не корректно введен Email';
-	var myNewContent2 = 'Введите Email';
-
-	var rightTool = {
-		theme : 'loftToolTip',
-		animation: 'swing',
-		delay: 1000,
-		touchDevices: false,
-		trigger: 'none',
-		speed: 1000,
-		position: 'right'
-	}
-
-	var leftTool = {
-		theme : 'loftToolTip',
-		animation: 'grow',
-		delay: 1000,
-		touchDevices: false,
-		trigger: 'none',
-		speed: 1000,
-		position: 'left'
-	};
+	var notValidEmail = 'Не корректно введен Email';
+	var enterEmail = 'Введите Email';
 
 
-		var errorMail = function () {
-
+		var checkMail = function () {
+			// (typeof e.preventDefault() !== 'undefined')? e.returnValue = false : e.preventDefault();
 		if(emailRegExp.test($('.Email').val())){
-			console.log('Good Email');
+			(/msie 8./i).test(navigator.appVersion)?alert('Good Email') : console.log('Good Email');
 		} else {
 			if($('.Email').val() ===''){
+
 				if($('.Email').attr('data-position') === 'left'){
-					$('.Email').tooltipster(leftTool);
-					$('.Email').tooltipster('content', myNewContent2).tooltipster('show');
+					$('.Email').tooltipster(tooltipsterObj.leftTool);
+					$('.Email').attr('data-haveerror', 'true').tooltipster('content', enterEmail).tooltipster('show');
 				} else {
-					$('.Email').tooltipster(rightTool);
-					$('.Email').tooltipster('content', myNewContent2).tooltipster('show');
+					$('.Email').tooltipster(tooltipsterObj.rightTool);
+					$('.Email').attr('data-haveerror', 'true').tooltipster('content', enterEmail).tooltipster('show');
 				}
 
 			} else {
 				if($('.Email').attr('data-position') === 'left'){
-					$('.Email').tooltipster(leftTool);
-					$('.Email').tooltipster('content', myNewContent).tooltipster('show');
+					$('.Email').tooltipster(tooltipsterObj.leftTool);
+					$('.Email').attr('data-haveerror', 'true').tooltipster('content', notValidEmail).tooltipster('show');
 				} else {
-					$('.Email').tooltipster(rightTool);
-					$('.Email').tooltipster('content', myNewContent).tooltipster('show');
+					$('.Email').tooltipster(tooltipsterObj.rightTool);
+					$('.Email').attr('data-haveerror', 'true').tooltipster('content', notValidEmail).tooltipster('show');
 				}
 			}
 				}
@@ -239,7 +247,7 @@ var MailValid =  (function (e) {
     return {
     	active : function () {
 
-		$('.MyForm').on('submit',errorMail);
+		$('.MyForm').on('submit',checkMail);
     
     }
 };
@@ -250,16 +258,22 @@ var MailValid =  (function (e) {
 
 
 var FormClean =  (function ( ) {
+			
 
 		var reset = function () {
-			$(":input:not(.submit,.reset)").tooltipster('hide');
+		if(permission){
+			$(":input").tooltipster('hide');
+		}
 		};
-		
-    return {
-    	active : function () {
+			
+			
+	var	clean = function () {
 		$(':reset').click(reset);
     
     }
+		
+    return {
+    	active : clean
 };
 }());
 
@@ -271,19 +285,22 @@ var FormSender =  (function ( ) {
 
 
 	function _showResult (e) {
-		e.preventDefault();
-
+		
+			if(permission){
 		var form = $(this);
 		
 
 
 		var defObj = _ajaxForm(form); 
+				
 		defObj.done(function(FormData){
 
 			for (var key in FormData) {
   			console.log(key + " = " + FormData[key]);
 		}
 		});
+	}
+
 };
 
 		function _ajaxForm (form) {
@@ -297,29 +314,35 @@ var FormSender =  (function ( ) {
 			dataType: 'json',
 			data: data
 		}).fail( function(){
-			console.log('Проблемы на стороне сервера');
+			(/msie 8./i).test(navigator.appVersion)?alert('Проблемы на стороне сервера') : console.log('Проблемы на стороне сервера');
 		});
 		}
 	
+		var zzz = function () {
+			if(permission){
+		$('.MyForm').submit(_showResult);
+				
+			}
 
+			
+
+    
+    }
 
 	
 
 
     return {
-    	active : function () {
-		$('.MyForm').submit(_showResult);
-
-    
-    }
+    	active : zzz
 };
 }());
 
-Face.active();
-BlueScreen.active();
-AddProject.active();
-FormValidate.active();
-MailValid.active();
-FormClean.active();
-FormSender.active();
+Face.active();// Замна фото на главной странице
+BlueScreen.active();//Активация ссылок при наведении на фото проекта
+AddProject.active();// Открытие и закрытие POPUP
+FormValidate.active();// Валидация формы
+MailValid.active();//Валидация поля Email
+FocusFild.active();//Удаление Tooltip при фокусировке на input
+FormClean.active();//У даление Tooltip при нажатии кнопки очистить
+FormSender.active();//Отправка формы
 

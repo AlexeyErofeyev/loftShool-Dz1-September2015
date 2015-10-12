@@ -1,4 +1,6 @@
-permission=false;
+jQuery(document).ready(function($) {
+	
+
 var Face =  (function ( ) {
 		if((/msie 8./i).test(navigator.appVersion)){
 	  	var face = document.getElementById('face');
@@ -132,39 +134,28 @@ var FormValidate =  (function ( ) {
 	 errorTips : function (e) {
 
 			(typeof e.preventDefault() !== 'undefined')? e.returnValue = false : e.preventDefault();
-
+			var emailRegExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
 	
-			$(":input:not(.Email)").each(function() {
-				if($(this).attr('data-position') === 'right'){
-					$(this).tooltipster(tooltipsterObj.rightTool);
-
-					if($(this).val() ===''){
-					$(this).attr('data-haveerror', 'true').tooltipster('show',function () {
-						permission = true;
-						
-					});		
-					
-				}
-
-				} else if($(this).attr('data-position') === 'left'){
-					$(this).tooltipster(tooltipsterObj.leftTool);
-
-					if($(this).val() ===''){
-						var abort = false;
-					$(this).attr('data-haveerror', 'true').tooltipster('show',function () {
-						permission = true;
-					});
-					
-					}
-				} 
+			$(":input:not(.Email,.submit,.reset)").each(function() {
+				if($(this).val() ===''){//1
+					FocusFild.active();//Удаление Tooltip при фокусировке на input
+					if($(this).attr('data-position') === 'right'){//2
+						$(this).tooltipster(tooltipsterObj.rightTool);
+						$(this).tooltipster('show');
+					}else {//2
+						$(this).tooltipster(tooltipsterObj.leftTool);
+						$(this).tooltipster('show');
+					}//2
+				} else if($(this).val() !=='' && emailRegExp.test($('.Email').val())){//1
+					console.log('good form');
+					FormSender.active();
+				}//1 
 			});
     		
 
     		    }
 
-    
-
-	}
+    }
 			
 				   
 
@@ -178,12 +169,12 @@ var FormValidate =  (function ( ) {
 
 var FocusFild =  (function ( ) {
 		var activateFocus = function () {		
-    $(":input").focus(focusTips);
+    $(":input:not(.submit,.reset)").focus(focusTips);
 			
 		
     }
 		 var focusTips = function() {  
-		 	if(permission){
+		 	
 
 			$(this).tooltipster('hide');
 				$(this).blur(function() {
@@ -192,7 +183,7 @@ var FocusFild =  (function ( ) {
 					} 
 						
 				});
-		 	}
+		 	
     	
     	}
     return {
@@ -212,28 +203,30 @@ var MailValid =  (function (e) {
 
 
 		var checkMail = function () {
-			// (typeof e.preventDefault() !== 'undefined')? e.returnValue = false : e.preventDefault();
+			var permission;
 		if(emailRegExp.test($('.Email').val())){
 			(/msie 8./i).test(navigator.appVersion)?alert('Good Email') : console.log('Good Email');
 		} else {
 			if($('.Email').val() ===''){
-
+				
 				if($('.Email').attr('data-position') === 'left'){
 					$('.Email').tooltipster(tooltipsterObj.leftTool);
-					$('.Email').attr('data-haveerror', 'true').tooltipster('content', enterEmail).tooltipster('show');
+					$('.Email').tooltipster('content', enterEmail).tooltipster('show');
 				} else {
 					$('.Email').tooltipster(tooltipsterObj.rightTool);
-					$('.Email').attr('data-haveerror', 'true').tooltipster('content', enterEmail).tooltipster('show');
+					$('.Email').tooltipster('content', enterEmail).tooltipster('show');
 				}
-
+				
 			} else {
+				
 				if($('.Email').attr('data-position') === 'left'){
 					$('.Email').tooltipster(tooltipsterObj.leftTool);
-					$('.Email').attr('data-haveerror', 'true').tooltipster('content', notValidEmail).tooltipster('show');
+					$('.Email').tooltipster('content', notValidEmail).tooltipster('show');
 				} else {
 					$('.Email').tooltipster(tooltipsterObj.rightTool);
-					$('.Email').attr('data-haveerror', 'true').tooltipster('content', notValidEmail).tooltipster('show');
+					$('.Email').tooltipster('content', notValidEmail).tooltipster('show');
 				}
+				
 			}
 				}
 		}
@@ -261,10 +254,10 @@ var FormClean =  (function ( ) {
 			
 
 		var reset = function () {
-		if(permission){
-			$(":input").tooltipster('hide');
+		
+			$(":input:not(.submit,.reset)").tooltipster('hide');
 		}
-		};
+		
 			
 			
 	var	clean = function () {
@@ -286,7 +279,7 @@ var FormSender =  (function ( ) {
 
 	function _showResult (e) {
 		
-			if(permission){
+		
 		var form = $(this);
 		
 
@@ -299,8 +292,7 @@ var FormSender =  (function ( ) {
   			console.log(key + " = " + FormData[key]);
 		}
 		});
-	}
-
+	
 };
 
 		function _ajaxForm (form) {
@@ -317,23 +309,12 @@ var FormSender =  (function ( ) {
 			(/msie 8./i).test(navigator.appVersion)?alert('Проблемы на стороне сервера') : console.log('Проблемы на стороне сервера');
 		});
 		}
-	
-		var zzz = function () {
-			if(permission){
-		$('.MyForm').submit(_showResult);
-				
-			}
-
-			
-
-    
-    }
 
 	
 
 
     return {
-    	active : zzz
+    	active : _showResult
 };
 }());
 
@@ -342,7 +323,5 @@ BlueScreen.active();//Активация ссылок при наведении 
 AddProject.active();// Открытие и закрытие POPUP
 FormValidate.active();// Валидация формы
 MailValid.active();//Валидация поля Email
-FocusFild.active();//Удаление Tooltip при фокусировке на input
 FormClean.active();//У даление Tooltip при нажатии кнопки очистить
-FormSender.active();//Отправка формы
-
+});

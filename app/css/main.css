@@ -610,3 +610,7 @@ footer{
     line-height: 16px;
     padding: 8px 10px;
 }
+
+.loftToolTipHide{
+    display: none;
+}

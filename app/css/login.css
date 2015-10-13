@@ -41,7 +41,8 @@
 
 .inputLogin{
     width: 403px;
-    height: 60px;
+    padding-top: 17px;
+    padding-bottom: 25px;
     border-radius: 4px;
     border: 1px solid #67dffa;
     margin-bottom: 20px;

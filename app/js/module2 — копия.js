@@ -1,28 +1,32 @@
+jQuery(document).ready(function($) {
+	
+
 var Face =  (function ( ) {
 		if((/msie 8./i).test(navigator.appVersion)){
 	  	var face = document.getElementById('face');
-		var foto = document.getElementById('foto');
-		
-		}
-		
-    return {
-    	active : function () {
+		var foto = document.getElementById('foto');		
+		};
+														//Замена Моего Фото, думаю пояснений не требует
+var change = function () {
 		if(face){
 			face.style.border = 'none';
 			foto.src = 'img/MyFace.png';
 			};
     
-    }
+    };		
+		
+    return {
+    	active : change
 };
 }());
 
 
 	var BlueScreen =  (function ( ) {
-		var blue = document.createElement('div');
+		var blue = document.createElement('div');		// Динамическое создание элементов Ссылки и Дива в котором будет "Название"
 		var blueLink = document.createElement('a');
 
 		blueLink.style.position = 'absolute';
-		blueLink.style.backgroundImage = 'url(../img/screenBG.png)';
+		blueLink.style.backgroundImage = 'url(../img/screenBG.png)';	// Навесил стили на Сылку
 		blueLink.style.width = '100%';
 		blueLink.style.height = '100%';
 		blueLink.style.top = '0px';
@@ -30,7 +34,7 @@ var Face =  (function ( ) {
 		blueLink.href = '#';
 
 		if((/msie 8./i).test(navigator.appVersion)){
-		blueLink.setAttribute('class','opasity');
+		blueLink.setAttribute('class','opasity');		// Т.К. ИЕ8 не поддерживает свойство OPASITY делаю через CSS
 		};
 			
 
@@ -38,7 +42,7 @@ var Face =  (function ( ) {
 		blue.style.width = '70px';
 		blue.style.height = '20px'
 		blue.style.border = '2px solid #ffffff';
-		blue.style.borderRadius = '4px';
+		blue.style.borderRadius = '4px';                    // Навесил стили на ДИВ
 		blue.style.padding = '1px 3px 0px 3px';
 		blue.style.lineHeight = '20px';
 		blue.style.color = '#ffffff';
@@ -46,130 +50,154 @@ var Face =  (function ( ) {
 
 		blueLink.appendChild(blue);
 
-		var HoverScreen = function() {
+		var HoverScreen = function() {			        // Т.К. в ИЕ8 проблемы с THIS использую JQuery
 			$(this).append(blueLink);
 		};
 
 		var LiveScreen = function() {
 			$(this).find('a').remove();
 		};
-		
-    return {
-    	active : function () {
+		var hover = function () {
 		$('.screen').hover(HoverScreen, LiveScreen);
     
-    }
+    };
+    return {
+    	active : hover
 };
 }());
 
 
 var AddProject =  (function ( ) {
 		var  screenProject = $('.screenProject'),
-			 popup = $('.popup'),
+			 popup = $('.popup'),									
 			 popupBG = $('.popupBG'),
 			 close = $('.close');
+
 		var openPopup = function () {
-			popupBG.fadeIn(500, function() {
+			popupBG.fadeIn(500, function() {		// Открытие POPUP
 				popup.fadeIn(700);
 			});
 		};
 		var closePopup = function () {
 			popupBG.fadeOut(500);
-			$(':input:not(":submit")').val('').tooltipster('hide');
-		}
-		
-    return {
-    	active : function () {
+			$(':input.tooltipstered:not(":submit")').val('').tooltipster('hide'); // Закрытие POPUP
+		};
+
+		var activePopup = function () {
 		screenProject.click(openPopup);
 		close.click(closePopup);
     
-    }
+    };
+		
+    return {
+    	active : activePopup
 };
 }());
 
-
-var FormValidate =  (function ( ) {
-	var leftTool = {
+var tooltipsterObj =  (function ( ) {
+		var leftTool = {
 		theme : 'loftToolTip',
 		animation: 'grow',
 		delay: 1000,
 		touchDevices: false,
 		trigger: 'none',
 		speed: 1000,
-		position: 'left'
+		position: 'left',
+		multiple: true
 	};
-
-	var rightTool = {
-		theme : 'loftToolTip',
+													// Настройки ТУЛТИПОВ у моего плагина нет такого метода который 
+	var rightTool = {								// через атрибут понимает с какой стороны объекта показывать
+		theme : 'loftToolTip',						// подсказку, но я сам его написал ниже будет видно
 		animation: 'swing',
 		delay: 1000,
 		touchDevices: false,
 		trigger: 'none',
 		speed: 1000,
-		position: 'right'
+		position: 'right',
+		multiple: true
 	}
+		
+    return {
+    	leftTool : leftTool,
+    	rightTool : rightTool
+};
+}());
 
-	var errorTips = function(e) {
-					e.preventDefault();
 
 
+var FormValidate =  (function ( ) {		// Собственно сама валидация формы
 
-			$(":input:not(.Email)").each(function() {
-				if($(this).attr('data-position') === 'right'){
+	var logic = {
+	 activateValidate : function () {
+		$('.MyForm').on('submit',logic.errorTips);
+    		},
 
-					$(this).tooltipster(rightTool);
+	 errorTips : function (e) {
 
-					if($(this).val() ===''){
-
-					$(this).tooltipster('show');
-					e.preventDefault();
-					
-				} else {
-
-					$(this).tooltipster('hide');
-
-				}
-				} else if($(this).attr('data-position') === 'left')
-				 {
-					$(this).tooltipster(leftTool);
-
-					if($(this).val() ===''){
-
-					$(this).tooltipster('show');
-					e.preventDefault();
-					
-
-				} else {
-
-					$(this).tooltipster('hide');
-				}
-				}
-			});
-				
-
-						
-    
-    };
-
-    var focusTips = function() {
-			$(this).tooltipster('hide');
-				$(this).blur(function() {
-					if($(this).val() ===''){
-						$(this).tooltipster(rightTool);
+			(typeof e.preventDefault() !== 'undefined')? e.returnValue = false : e.preventDefault();  // Кросбраузерный  e.preventDefault()
+			var prom;
+	    	$(":input:not(.Email,.submit,.reset,.submitBTN,.subButn)").each(function() {  //  Выборка конечно что надо
+				if($(this).val() ===''){//1
+					FocusFild.active();// Активация модуля для удаление Tooltip при фокусировке на input
+					if($(this).attr('data-position') === 'right'){//2
+						$(this).tooltipster(tooltipsterObj.rightTool);
 						$(this).tooltipster('show');
-					} 
 						
-				});
+					}else {//2																	// Определяет для пустых полей с какой стороны показывать тултип  (КРОМЕ EМAIL, ОНИ ОСОБЕННЫЕ) 
+						$(this).tooltipster(tooltipsterObj.leftTool);
+						$(this).tooltipster('show');
+
+					}//2
+			  } else if(document.getElementById('Email') === null && $(".tooltipstered").length === 0){//1					// Если все поля заполнены и поля с ID Email не существует на странице
+
+			  			if(document.getElementById('fileUpload') !== null && document.getElementById('fileUpload').value !=='') {
+					(/msie 8./i).test(navigator.appVersion)?alert('good form') : console.log('good form');
+						prom = true;
+							(/msie 8./i).test(navigator.appVersion)?alert(prom) : console.log(prom);														// то присваеваем этой переменной true
+						} else{
+							(/msie 8./i).test(navigator.appVersion)?alert('good form') : console.log('good form');
+						prom = true;
+						(/msie 8./i).test(navigator.appVersion)?alert(prom) : console.log(prom);
+						}
+				 }//1 
+			});
+    			prom ? FormSender.active() : 'Просто строка чтоб JS не ругался на отсутствие третьего аргумента' ; // Если она true то оправляем форму
+
+    		    }
+
+     }
 			
 				   
-		};
 
 		
     return {
-    	active : function () {
-		$('.MyForm').on('submit',errorTips);
-		$(":input").focus(focusTips);
+    	active : logic.activateValidate
+};
+}());
+
+
+
+var FocusFild =  (function ( ) {
+		var activateFocus = function () {		
+    $(":input:not(.submit,.reset,.subButn)").focus(focusTips);
+			
+		
     }
+		 var focusTips = function() {  
+		 	
+		 		if($(this).val() === ''){
+			$(this).tooltipster('hide').removeClass("tooltipstered");								// Модуль удаляет тултипы у элементов на которых
+				$(this).blur(function() {								// происходит фокусировка и выводит их обратно 
+					if($(this).val() ===''){							// если поле осталось пустым
+						$(this).tooltipster('show').addClass("tooltipstered");					// Активация модуля происходит после событя SUBMIT на любой из форм сайта
+					} 
+						
+				});
+		 	
+    	}
+    	}
+    return {
+    	active : activateFocus
 };
 }());
 
@@ -177,71 +205,56 @@ var FormValidate =  (function ( ) {
 
 
 var MailValid =  (function (e) {
-			// e.preventDefault();
+			
 
-	var emailRegExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-	var myNewContent = 'Не корректно введен Email';
-	var myNewContent2 = 'Введите Email';
-
-	var rightTool = {
-		theme : 'loftToolTip',
-		animation: 'swing',
-		delay: 1000,
-		touchDevices: false,
-		trigger: 'none',
-		speed: 1000,
-		position: 'right'
-	}
-
-	var leftTool = {
-		theme : 'loftToolTip',
-		animation: 'grow',
-		delay: 1000,
-		touchDevices: false,
-		trigger: 'none',
-		speed: 1000,
-		position: 'left'
-	};
+	var emailRegExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/; 
+	var notValidEmail = 'Не корректно введен Email';												// Регулярное выражение и текст тултипов
+	var enterEmail = 'Введите Email';
 
 
-		var errorMail = function () {
-
-		if(emailRegExp.test($('.Email').val())){
-			console.log('Good Email');
+		var checkMail = function () {
+			var permission;
+		if($(":input:not(.Email,.submit,.reset,.submitBTN)").val() !=='' && emailRegExp.test($('.Email').val())){
+			(/msie 8./i).test(navigator.appVersion)?alert('Good Email') : console.log('Good Email');				// Валидация
+			FormSender.active();
 		} else {
 			if($('.Email').val() ===''){
+				
 				if($('.Email').attr('data-position') === 'left'){
-					$('.Email').tooltipster(leftTool);
-					$('.Email').tooltipster('content', myNewContent2).tooltipster('show');
-				} else {
-					$('.Email').tooltipster(rightTool);
-					$('.Email').tooltipster('content', myNewContent2).tooltipster('show');
+					$('.Email').tooltipster(tooltipsterObj.leftTool);
+					$('.Email').tooltipster('content', enterEmail).tooltipster('show');
+				} else {																	// В случае пустой строки
+					$('.Email').tooltipster(tooltipsterObj.rightTool);
+					$('.Email').tooltipster('content', enterEmail).tooltipster('show');
 				}
-
-			} else {
+				
+			} else {																 
+				
 				if($('.Email').attr('data-position') === 'left'){
-					$('.Email').tooltipster(leftTool);
-					$('.Email').tooltipster('content', myNewContent).tooltipster('show');
-				} else {
-					$('.Email').tooltipster(rightTool);
-					$('.Email').tooltipster('content', myNewContent).tooltipster('show');
+					$('.Email').tooltipster(tooltipsterObj.leftTool);
+					$('.Email').tooltipster('content', notValidEmail).tooltipster('show');
+				} else {																	// В случае не корректного Email
+					$('.Email').tooltipster(tooltipsterObj.rightTool);
+					$('.Email').tooltipster('content', notValidEmail).tooltipster('show');
 				}
+				
 			}
 				}
+				//
 		}
 
 
 
+			var submit =function () {
 
+		$('.MyForm').on('submit',checkMail);
+    
+    }
 			
 		
 		
     return {
-    	active : function () {
-
-		$('.MyForm').on('submit',errorMail);
-    
-    }
+    	active : submit
 };
 }());
 
@@ -250,16 +263,22 @@ var MailValid =  (function (e) {
 
 
 var FormClean =  (function ( ) {
+			
 
 		var reset = function () {
-			$(":input:not(.submit,.reset)").tooltipster('hide');
-		};
 		
-    return {
-    	active : function () {
+			$(":input.tooltipstered").tooltipster('hide');
+		}
+																// очистка формы
+			
+			
+	var	clean = function () {
 		$(':reset').click(reset);
     
     }
+		
+    return {
+    	active : clean
 };
 }());
 
@@ -271,19 +290,21 @@ var FormSender =  (function ( ) {
 
 
 	function _showResult (e) {
-		e.preventDefault();
-
+		
+		
 		var form = $(this);
 		
 
 
 		var defObj = _ajaxForm(form); 
+				
 		defObj.done(function(FormData){
 
 			for (var key in FormData) {
-  			console.log(key + " = " + FormData[key]);
+  			console.log(key + " = " + FormData[key]);		// Отправка формы
 		}
 		});
+	
 };
 
 		function _ajaxForm (form) {
@@ -297,29 +318,22 @@ var FormSender =  (function ( ) {
 			dataType: 'json',
 			data: data
 		}).fail( function(){
-			console.log('Проблемы на стороне сервера');
+			(/msie 8./i).test(navigator.appVersion)?alert('Проблемы на стороне сервера') : console.log('Проблемы на стороне сервера');
 		});
 		}
-	
-
 
 	
 
 
     return {
-    	active : function () {
-		$('.MyForm').submit(_showResult);
-
-    
-    }
+    	active : _showResult
 };
 }());
 
-Face.active();
-BlueScreen.active();
-AddProject.active();
-FormValidate.active();
-MailValid.active();
-FormClean.active();
-FormSender.active();
-
+Face.active();// Замна фото на главной странице
+BlueScreen.active();//Активация ссылок при наведении на фото проекта
+AddProject.active();// Открытие и закрытие POPUP
+FormValidate.active();// Валидация формы
+MailValid.active();//Валидация поля Email
+FormClean.active();//У даление Tooltip при нажатии кнопки очистить
+});

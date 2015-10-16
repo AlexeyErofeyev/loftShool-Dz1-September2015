@@ -3,6 +3,7 @@
   "dependencies": {
     "html5shiv": "~3.7.3",
     "jquery": "1.9",
+    "jquery-placeholder": "~2.1.3",
     "modernizr": "2.8",
     "tooltipster": "~3.3.0"
   }

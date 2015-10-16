@@ -338,10 +338,25 @@ var FormSender =  (function ( ) {
 };
 }());
 
+
+var Placeholder =  (function ( ) {
+	  		var xxx = function () {
+		if((/msie 8./i).test(navigator.appVersion)){
+	  		$('input, textarea').placeholder();
+		};
+	  		}
+															
+		
+    return {
+    	active : xxx
+};
+}());
+
 Face.active();// Замна фото на главной странице
 BlueScreen.active();//Активация ссылок при наведении на фото проекта
 AddProject.active();// Открытие и закрытие POPUP
 FormValidate.active();// Валидация формы
 MailValid.active();//Валидация поля Email
 FormClean.active();//У даление Tooltip при нажатии кнопки очистить
+Placeholder.active();
 });

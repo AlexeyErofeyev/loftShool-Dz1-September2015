@@ -140,7 +140,8 @@
 
 .textInput{
     width: 311px;
-    height: 37px;
+    padding-top: 12px;
+    padding-bottom: 7px;
     border-radius: 4px;
     border: 1px solid #67dffa;
     padding-left: 9px;
